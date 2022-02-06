@@ -14,14 +14,15 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: #ffffff;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: top;
+  justify-content: top;
+  font-size: calc(5px + 1vmin);
+  color: rgb(36, 52, 129);
+  margin: 5vh;
+
 }
 
 .App-link {
@@ -35,4 +36,30 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.CurrencySelector {
+  margin-bottom: 4vh;  
+}
+
+.FormLabel {
+  margin-bottom: 3vh;  
+}
+
+.Warning {
+  padding:3vh;
+  color: #c52b2b;
+}
+
+.Frame {
+  margin:3vh;
+  padding:2vh;
+  height:'100%';
+}
+
+.Topic 
+{
+  margin:3vh;
+  padding:3vh;
+  color:grey;
 }
