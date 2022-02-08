@@ -6,9 +6,9 @@ import Paper from '@mui/material/Paper';
 import TextField from '@mui/material/TextField';
 import '../App.css';
 import { useSelector, useDispatch, ReactReduxContext, useStore } from 'react-redux'
-import { updateCurrencyConverter  } from './currencyReducer'
+import { updateCurrencyConverter  } from './reducer/CurrencyReducer'
 import {CROSS_VIA_MARTIX, CURRENCY_DISPLAY, isValidCurrencyPair, calculateRate} from '../reference/constants';
-import { CurrencyFormat }  from './currencyText'
+import { CurrencyFormat }  from './CurrencyText'
 import { Autocomplete } from '@mui/material';
 
 
@@ -61,10 +61,10 @@ export default function CCYTerms(props) {
       <Autocomplete
           className="CurrencySelector"
           onChange={handleCurrencyChange} 
-          //onInputChange={handleCurrencyChange} 
           value={termsCurrency}
           disablePortal
           id="to-currency-auto"
+          data-testid="to-currency-auto"
           options={CURRENCY_DISPLAY.map(c => c.ccy)}
           // freeSolo
           sx={{ width: '100%' }}
@@ -77,10 +77,12 @@ export default function CCYTerms(props) {
               value={termsAmount} 
               className={'CurrencySelector'} 
               id="to-currency-text" 
+              data-testid="to-currency-text"
               name="to-currency-text"
-              label="Amount" 
+              label="To Amount" 
               variant="outlined" 
               InputProps={{
+                "data-testid":"to-currency-text-inner",
                 inputComponent: CurrencyFormat,
                 inputProps:{currency:termsCurrency}
               }}

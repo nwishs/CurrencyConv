@@ -6,7 +6,6 @@ import {CURRENCY_DISPLAY} from '../reference/constants'
 
 export const CurrencyFormat = React.forwardRef(function CurrencyFormat(props, ref) {
     const { onChange, currency, ...other } = props;
-    // let currencyFound = CURRENCY_DISPLAY.find(c => c.ccy === currency) !== undefined ? true : false;
     let currencyFound = CURRENCY_DISPLAY.find(c => c.ccy === currency)
     return (
       <NumberFormat
@@ -16,14 +15,14 @@ export const CurrencyFormat = React.forwardRef(function CurrencyFormat(props, re
           onChange({
             target: {
               name: props.name,
-              value: values.value //currencyFound ? parseFloat(values.value).toFixed(currencyFound.decimals) : 0,
+              value: values.value
             },
           });
         }}
         decimalScale={currencyFound ? currencyFound.decimals : 0}
         thousandSeparator
         isNumericString
-        prefix={ currencyFound ? currencyFound.symbol + ' ' : '' }
+        prefix={ currencyFound ? currencyFound.symbol : '' }
       />
     );
   });

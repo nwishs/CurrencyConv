@@ -12,13 +12,11 @@ export const currencyReducer = createSlice({
   },
   reducers: {
     updateCurrencyConverter:(state, action) => {
-      
       state.baseCurrency = action.payload.baseCurrency
       state.baseAmount = action.payload.baseAmount
       state.termsCurrency = action.payload.termsCurrency
       state.termsAmount = action.payload.termsAmount
      },
- 
   },
 })
 

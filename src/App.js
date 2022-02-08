@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import Typography from '@mui/material/Typography';
-import Converter from './components/converter';
+import Converter from './components/Converter';
 
 import Paper from '@mui/material/Paper';
 

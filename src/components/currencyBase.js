@@ -9,30 +9,12 @@ import { MenuItem } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import Paper from '@mui/material/Paper';
 import { useSelector, useDispatch, ReactReduxContext, useStore } from 'react-redux'
-import { updateCurrencyConverter  } from './currencyReducer'
+import { updateCurrencyConverter  } from './reducer/CurrencyReducer'
 import { Autocomplete } from '@mui/material';
 import Grid from '@mui/material/Grid';
-import { CurrencyFormat }  from './currencyText'
+import { CurrencyFormat }  from './CurrencyText'
 
 
-
-const optionLabel = (option) => {
-  <Grid container justifyContent="space-between" alignContent="center" alignItems="center" spacing={1}>
-    <Grid item md={3} xs={6}>
-      <Box
-        component="img"
-        sx={{
-          maxWidth:'100%',
-          border: 2,
-          borderColor:'#eeeeee',
-        }}
-        src={option.symbol}/>
-    </Grid>
-    <Grid item md={3} xs={5}>
-      {option.ccy}
-    </Grid>
-  </Grid>
-}
 
 export default function CCYBase(props) {
   const baseCurrency = useSelector((state) => state.converter.baseCurrency)
@@ -52,14 +34,14 @@ export default function CCYBase(props) {
       return { 
         baseCurrency: state.baseCurrency,
         termsCurrency: state.termsCurrency,
-        baseAmount: state.baseAmount, //state.termsAmount *2,
+        baseAmount: state.baseAmount, 
         termsAmount: newAmount
       }
     }
     return { 
       baseCurrency: state.baseCurrency,
       termsCurrency: state.termsCurrency,
-      baseAmount: state.baseAmount, //state.termsAmount *2,
+      baseAmount: state.baseAmount, 
       termsAmount: 0.0
     }
   }
@@ -83,10 +65,10 @@ export default function CCYBase(props) {
         <Autocomplete
           className="CurrencySelector"
           onChange={handleCurrencyChange} 
-          //onInputChange={handleCurrencyChange} 
           value={baseCurrency}
           disablePortal
           id="from-currency-auto"
+          data-testid="from-currency-auto"
           options={CURRENCY_DISPLAY.map(c => c.ccy)}
           // freeSolo
           sx={{ width: '100%' }}
@@ -99,10 +81,12 @@ export default function CCYBase(props) {
               value={baseAmount} 
               className={'CurrencySelector'} 
               id="from-currency-text" 
+              data-testid="from-currency-text"
               name="from-currency-text"
-              label="Amount" 
+              label="From Amount" 
               variant="outlined" 
               InputProps={{
+                "data-testid":"from-currency-text-inner",
                 inputComponent: CurrencyFormat,
                 inputProps:{currency:baseCurrency}
               }}

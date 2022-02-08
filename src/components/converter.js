@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Grid from '@mui/material/Grid';
-import CCYBase from './currencyBase';
-import CCYTerms from './currencyTerms';
+import CCYBase from './CurrencyBase';
+import CCYTerms from './CurrencyTerms';
 import Typography from '@mui/material/Typography';
 
 
@@ -26,7 +26,7 @@ export default function Converter() {
         </Grid>
         <Grid  container justifyContent="center" alignContent='center' alignItems="center" alignSelf='center'  spacing={3}>
         <Grid item xs={10}>
-                <Typography className="Warning" id="header-text" variant="h6" component="h6">
+                <Typography className="Warning" id="header-text" data-testid="conversion-rate" variant="h6" component="h6">
                     {status}
                 </Typography>
             </Grid>
