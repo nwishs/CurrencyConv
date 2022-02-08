@@ -2,13 +2,12 @@
 
 Simple web appplication to demonstrate currency conversion. Conversion is based on static currency reference data/rates.
 
-## Installation
-
-## Clone project -
+## download project 
+### Clone project 
 ### `git clone https://github.com/nwishs/CurrencyConv.git`
 
 ## install packages
-### cd `project-directory`
+### cd project-directory
 ### `npm install`
 
 ## run application locally
